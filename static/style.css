@@ -1,0 +1,23 @@
+h1 {
+  background: gray;
+  padding: 20px;
+}
+
+li {
+
+
+  margin-bottom: 5px;
+}
+
+.news-items {
+  margin: 10px 0;
+}
+
+#main_news_list .news-items {
+  border: 1px solid gray;
+  padding: 5px;
+}
+
+.highlight {
+  color: red;
+}   

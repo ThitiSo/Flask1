@@ -20,7 +20,7 @@ news_items = {
 
 @app.route('/')
 def index():
-    name = 'Somchai'
+    name = 'THITI'
     time = datetime.now()
     return render_template('index3.html', 
                            name=name, 

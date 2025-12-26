@@ -1,20 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
- <body>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
     <h1>Hello!! {{ name }}</h1>
     Hi. This is {{ time }}.  This is recent news.
-    <ul>
+    <ul id="main_news_list">
       {% for item in news_items %}
-        <li>
+       
+          {% if item.id == 2%}
+          
+          <li class="news-items" id="news_item_{{ item.id }} " style="background-color: darkgreen; border: 1px solid black;">
+          <a href="{{ url_for('show_news_item', id=item.id) }}" style="color : white; font-size: 30px;" >{{ item.title }}</a></li>
+         
+          {% else %}
+           <li class="news-items" id="news_item_{{ item.id }}" style=" border: 1px solid black;">
           <a href="{{ url_for('show_news_item', id=item.id) }}">{{ item.title }}</a>
-        </li>
+          </li>
+          {% endif %}
+        
       {% endfor %}
     </ul> 
+
+    This is the first dummy list
+    <ul>
+      <li class="news-items">
+        <span class="highlight" style="background-color: yellow; color: red; font-size: 30px;">Somying</span> is the first year student.
+      </li>
+      <li class="news-items">
+        Somchai is the second year student
+      </li>
+      <li class="news-items">Sommai</li>
+      <li class="news-items">Somjai</li>
+    </ul>
+
+    This is the <span class="highlight" style="color: red;">second dummy list</span>:
+    <ul>
+      <li>breakfast</li>
+      <li id="lunch_item">lunch</li>
+      <li>dinner</li>
+    </ul>
 
     <form action="{{ url_for('create_news_item') }}" method="POST">
       Title: <input name="title"/><br />
