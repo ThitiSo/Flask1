@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import render_template
-
 from datetime import datetime
+
 app = Flask(__name__)
 
 news_items = {
@@ -15,20 +15,15 @@ news_items = {
         'title':'Python 4', 
         'body':'Python 4 will be out soon.... this is FAKE'},
 }
-@app.route("/")
-def hello_world():
-    return "<p>Hello, NIG!</p>"
 
-@app.route('/hello/')
-def hello_world1():
-    return '<h1>Hi my name is Thiti<h2>'
-
-@app.route('/index/')
+@app.route('/')
 def index():
-    # ...
-    return render_template('index.html', 
+    name = 'Somchai'
+    time = datetime.now()
+    return render_template('index2.html', 
+                           name=name, 
+                           time=time,
                            news_items=news_items.values())
-
 
 @app.route('/news/<id>/')
 def show_news_item(id):
